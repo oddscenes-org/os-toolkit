@@ -7,38 +7,20 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const PreloadWebpackPlugin = require('preload-webpack-plugin');
 
+// Webpack loaders file
+const loaders = require('./webpack.loaders');
+
 // Set to development
 process.env.NODE_ENV = 'development';
 
-// HTML Pages
-const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  title: 'HomePage',
-  template: path.join(__dirname, '/app/index.html'),
-  filename: 'index.html',
-  // inject: 'body',
-  inject: true,
-  allChunks: true,
-});
-const HTMLWebpackPluginConfigAbout = new HTMLWebpackPlugin({
-  title: 'AboutPage',
-  template: path.join(__dirname, '/app/about.html'),
-  filename: 'about.html',
-  // inject: 'body',
-  inject: true,
-  allChunks: true,
-});
-const HTMLWebpackPluginConfigNotFound = new HTMLWebpackPlugin({
-  title: 'NotFoundPage',
-  template: path.join(__dirname, '/app/404.html'),
-  filename: '404.html',
-  // inject: 'body',
-  inject: true,
-  allChunks: true,
-});
-
+// Setup Sass
 const SassBundle = new ExtractTextPlugin({
   filename: '[name].bundle.css',
   allChunks: true,
+});
+loaders.push({
+  test: /\.(css|sass|scss)$/,
+  loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
 });
 
 module.exports = {
@@ -47,71 +29,89 @@ module.exports = {
     path.join(__dirname, '/app/sass/index.sass'),
   ],
   module: {
-    loaders: [
-      {
-        test: /\.(html)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'html-loader',
-      },
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-      {
-        test: /\.(css|sass|scss)$/,
-        loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader']),
-      },
-      {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'file-loader',
-      },
-      {
-        test: /\.(woff|woff2)$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'url-loader?prefix=font/&limit=5000',
-      },
-      {
-        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'url-loader?limit=10000&mimetype=application/octet-stream',
-      },
-      {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'url-loader?limit=10000&mimetype=image/svg+xml',
-      },
-      {
-        test: /\.gif/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'url-loader?limit=10000&mimetype=image/gif',
-      },
-      {
-        test: /\.jpg/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'url-loader?limit=10000&mimetype=image/jpg',
-      },
-      {
-        test: /\.png/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'url-loader?limit=10000&mimetype=image/png',
-      },
-    ],
+    loaders,
   },
   output: {
     filename: 'build.js',
     path: path.join(__dirname, '/build'),
   },
-  // target: 'web',
   devtool: 'inline-source-map',
+  devServer: {
+    historyApiFallback: {
+      rewrites: [
+        // Rewrite URLs for devserver
+        { from: /\/about/, to: '/about.html' },
+        { from: /\/plugin-anime/, to: '/plugin-anime.html' },
+        { from: /\/plugin-moment/, to: '/plugin-moment.html' },
+        { from: /\/plugin-scroll/, to: '/plugin-scroll.html' },
+        { from: /\/plugin-video/, to: '/plugin-video.html' },
+        { from: /\/plugin-modal/, to: '/plugin-modal.html' },
+      ],
+    },
+  },
   plugins: [
-    HTMLWebpackPluginConfig,
-    HTMLWebpackPluginConfigAbout,
-    HTMLWebpackPluginConfigNotFound,
     new PreloadWebpackPlugin(),
     SassBundle,
     new DashboardPlugin(),
     new FaviconsWebpackPlugin(path.join(__dirname, '/app/img/favicon.png')),
+
+    // HTML Pages
+    new HTMLWebpackPlugin({
+      title: 'HomePage',
+      template: path.join(__dirname, '/app/index.html'),
+      filename: 'index.html',
+      inject: true,
+      allChunks: true,
+    }),
+    new HTMLWebpackPlugin({
+      title: 'AboutPage',
+      template: path.join(__dirname, '/app/about.html'),
+      filename: 'about.html',
+      inject: true,
+      allChunks: true,
+    }),
+    new HTMLWebpackPlugin({
+      title: 'NotFoundPage',
+      template: path.join(__dirname, '/app/404.html'),
+      filename: '404.html',
+      inject: true,
+      allChunks: true,
+    }),
+    new HTMLWebpackPlugin({
+      title: 'PluginAnime',
+      template: path.join(__dirname, '/app/plugin-anime.html'),
+      filename: 'plugin-anime.html',
+      inject: true,
+      allChunks: true,
+    }),
+    new HTMLWebpackPlugin({
+      title: 'PluginMoment',
+      template: path.join(__dirname, '/app/plugin-moment.html'),
+      filename: 'plugin-moment.html',
+      inject: true,
+      allChunks: true,
+    }),
+    new HTMLWebpackPlugin({
+      title: 'PluginScroll',
+      template: path.join(__dirname, '/app/plugin-scroll.html'),
+      filename: 'plugin-scroll.html',
+      inject: true,
+      allChunks: true,
+    }),
+    new HTMLWebpackPlugin({
+      title: 'PluginVideo',
+      template: path.join(__dirname, '/app/plugin-video.html'),
+      filename: 'plugin-video.html',
+      inject: true,
+      allChunks: true,
+    }),
+    new HTMLWebpackPlugin({
+      title: 'PluginModal',
+      template: path.join(__dirname, '/app/plugin-modal.html'),
+      filename: 'plugin-modal.html',
+      inject: true,
+      allChunks: true,
+    }),
+
   ],
 };

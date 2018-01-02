@@ -1,30 +1,30 @@
 import React from 'react';
-import scrollToComponent from 'react-scroll-to-component';
 
+const Scroll = require('react-scroll');
+const { Link } = Scroll;
+const { Element } = Scroll;
 
-class PluginScroll extends React.Component {
-  scrollBtn() {
-    scrollToComponent(this.scrollBtnEl, {
-      offset: 0,
-      align: 'middle',
-      duration: 500,
-      ease: 'inCirc',
-    });
-  }
-
+export default class PluginScroll extends React.Component {
   render() {
     return (
       <div className="scroll-demo">
-        <button onClick={this.scrollBtn.bind(this)}>Go To Orange</button>
-        <section
-          className="scroll-btn-elemenet"
-          ref={(section) => { this.scrollBtnEl = section; }}
+        <Link
+          activeClass="active"
+          to="scrollWrap"
+          spy
+          smooth
+          offset={-42}
+          duration={500}
+          onSetActive={this.handleSetActive}
         >
-          Orange
-        </section>
+          <button>Scroll Demo</button>
+        </Link>
+
+        <div className="scroll-box">
+          <Element name="scrollWrap" />
+          Scrolled to element
+        </div>
       </div>
     );
   }
 }
-
-export default PluginScroll;

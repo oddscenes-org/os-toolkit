@@ -8,6 +8,10 @@ class HeadInfo extends React.Component {
       <Helmet>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
 
         <title>{this.props.pageTitle}</title>
         <meta name="description" content={this.props.pageDescription} />
@@ -24,6 +28,16 @@ class HeadInfo extends React.Component {
         <meta property="twitter:image" content={this.props.pageImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:site" content={this.props.pageWebsite} />
+
+        {/* Font Awesome */}
+        {/* <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js" /> */}
+
+        {/* IonIcons */}
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+        <script src="https://unpkg.com/ionicons@4.0.0-6/dist/ionicons.js" />
+
+        {/* Material Icons */}
+        {/* <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> */}
       </Helmet>
     );
   }

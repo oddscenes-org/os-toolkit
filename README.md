@@ -49,18 +49,20 @@ Install **Now CLI** for easy demo
 `sudo npm install -g now`  
 `now`
 
-# Working With the Files
+# Working With the Files  
+  
+### ▶️ Adding HTML Pages (Serverside load)
+1) Create `HTML` page in `/app`
+2) Add webpack devserver route in `webpack.config.js` under `Rewrite URLs for devserver`
+3) Add `new HTMLWebpackPlugin` for each page at the bottom of `webpack.config.js`
+4) Add the same `new HTMLWebpackPlugin` to `webpack.production.js`
 
-### Adding HTML Pages
-1) Create html page in `/app`
-2) Add HTMLWebpackPlugin variable under the `HTML Pages` section in `webpack.config.js`
-3) Add variable in list of `plugins` at the bottom of `webpack.config.js`
-4) Add new route in `server.js` (for production)
+### ▶️ Adding React Components to HTML
+`index.js` is the file to `import` and `render` all ReactJS components to their `#div`s  
+  
+Import the components either conditionally (if page contains `#id`), or sitewide
 
-### Adding React Components to HTML
-`index.js` is the file to `import` and `render` all ReactJS components to their `#div`s
-
-### Editing Metadata & Analytics
+### ▶️ Editing Metadata & Analytics
 Metadata component is in `app/js/components/HeadInfo.js`  
 Editable information is located in `app/js/index.js`  
   
@@ -68,22 +70,66 @@ To add different metadata to another page duplicate `Page Header Info` section i
   
 To add analytics edit the tracking code under `Analytics Info` inside `index.js`
 
-### Sitemap Generator
+### ▶️ Sitemap Generator
 A sitemap is automatically generated in the project directory when the production build is run with `yarn start`  
   
 If you want a `robots.txt` file generated along with `sitemap.xml` file change `sitemap.XMLtoFile();` to `sitemap.toFile();` inside the `server.js` file.  
   
 If you would like to make changes to the `sitemap.xml` or `robots.txt` see additional config options [here](https://github.com/hex7c0/express-sitemap)
 
-### 404 Not Found Page
+### ▶️ 404 Not Found Page
 The `404.html` file will not display in development (`yarn run dev`) because it's routed via `server.js` with Express. In order to view the changes you make to the `404.html` template, you'll need build and run in production - then navigate to a broken link.
 
-### Demo Plugins
+### ▶️ Preloader
+The preloader used is called pace by Hubspot, with a custom theme found in `components/Loader.sass`. The script is referenced in the `HTML` templates at the top.  
+  
+To see the docs and customize it more check [here](http://github.hubspot.com/pace/)
+
+### ▶️ Icon Libraries
+3 Icon libraries are included and ready to go via CDN, located in `app/js/components/HeadInfo.jsx`. Just uncomment any of the ones you want to use there.  
+  
+**Font Awesome:**
+[Repo](https://fontawesome.com/icons?d=listing&m=free)  
+Usage:  
+```
+<i class="fas fa-adjust"></i>
+```
+  
+**IonIcons:**
+[Repo](http://ionicons.com/)  
+Usage:  
+```
+<i class="icon ion-home"></i>
+```
+  
+**Material Icons:**
+[Repo](https://material.io/icons/)  
+Usage:  
+```
+<i class="material-icons">loyalty</i>
+```
+
+### ▶️ Media queries
+Recommended media query sizes:  
+
+| Size          | Pixels           |
+| ------------- |:----------------:|
+| X-Small       | < 320px          |
+| Small         | 321px - 480px    |
+| Medium        | 481px - 767px    |
+| Large         | 768px - 991px    |
+| X-Large       | 992px - 1200px   |
+| XX-Large      | 1201px - 1600px  |
+| XXX-Large     | > 1600px         |
+
+
+### ▶️ Demo Plugins
 There is a few demo plugins included located at `app/js/components/Plugin...`. If you won't be using them delete these files, and remove them from `index.js` and corresponding `#div`s in `HTML`.
 
 - [**MomentJS**](https://momentjs.com/): For working with time & dates
 - [**AnimeJS**](http://animejs.com/): For animating elements
-- [**Scroll to Component**](https://github.com/flyingant/react-scroll-to-component/): For scrolling
+- [**React Scroll**](https://github.com/fisshy/react-scroll): For scrolling
+- [**React Video**](https://github.com/video-react/video-react): For working with video
 
-### Conditionally Adding React Components
+### ▶️ Conditionally Adding React Components
 For now the solution for pages with individual components will need to be imported by first checking to see if the empty `#div` exists in `index.js`. Imported components are split into 2 sections `Sitewide` and `Conditional - specific pages`. 

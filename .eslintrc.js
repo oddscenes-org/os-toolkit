@@ -10,6 +10,9 @@ module.exports = {
     "import/extensions": 0,
     "react/prefer-stateless-function": 0,
     "react/jsx-no-bind": 0,
+    "jsx-a11y/accessible-emoji": 0,
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/media-has-caption": 0
   },
   "env": {
     "browser": true,
