@@ -46,6 +46,7 @@ module.exports = {
         { from: /\/plugin-scroll/, to: '/plugin-scroll.html' },
         { from: /\/plugin-video/, to: '/plugin-video.html' },
         { from: /\/plugin-modal/, to: '/plugin-modal.html' },
+        { from: /\/plugin-tooltip/, to: '/plugin-tooltip.html' },
       ],
     },
   },
@@ -77,6 +78,7 @@ module.exports = {
       inject: true,
       allChunks: true,
     }),
+    // Plugin Pages
     new HTMLWebpackPlugin({
       title: 'PluginAnime',
       template: path.join(__dirname, '/app/plugin-anime.html'),
@@ -109,6 +111,13 @@ module.exports = {
       title: 'PluginModal',
       template: path.join(__dirname, '/app/plugin-modal.html'),
       filename: 'plugin-modal.html',
+      inject: true,
+      allChunks: true,
+    }),
+    new HTMLWebpackPlugin({
+      title: 'PluginTooltip',
+      template: path.join(__dirname, '/app/plugin-tooltip.html'),
+      filename: 'plugin-tooltip.html',
       inject: true,
       allChunks: true,
     }),

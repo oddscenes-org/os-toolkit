@@ -1,5 +1,5 @@
 # Description
-Most react/webpack/babel setups don't have good production deployment - this repo has all the tools needed to build and deploy easily. Includes a couple plugins (gonna add more later) that can help to get started with animation, time etc.
+Most react/webpack/babel setups don't have good production deployment - this repo has all the tools needed to build and deploy easily. Also includes some plugins that can help to get started with animation, time, interaction etc.
 
 **Uses**:
 - Webpack
@@ -28,7 +28,7 @@ Then: `yarn`
 `yarn start`
 
 # Deployment
-1) Optionally remove `.html` file extensions in links to hide in URL bar
+1) Clone repo on your server
 2) Build website with `yarn run build`
 3) On your server install forever globally `sudo npm install forever -g`
 4) On your server, in your project directory run `forever start -c "npm start" ./`
@@ -47,7 +47,9 @@ is a sample Nginx config with an installation guide
 **Dev Deployment**  
 Install **Now CLI** for easy demo  
 `sudo npm install -g now`  
-`now`
+`now`  
+- The link will be copied to clipboard, then you can paste in browser.
+- You get `3` deployment instances with a free now account, so make sure to remove instance after use `now rm <url>`
 
 # Working With the Files  
   
@@ -86,13 +88,13 @@ The preloader used is called pace by Hubspot, with a custom theme found in `comp
 To see the docs and customize it more check [here](http://github.hubspot.com/pace/)
 
 ### ▶️ Icon Libraries
-3 Icon libraries are included and ready to go via CDN, located in `app/js/components/HeadInfo.jsx`. Just uncomment any of the ones you want to use there.  
+3 Icon libraries are included and ready to go, just uncomment out the library in `app/sass/index.sass`. 
   
 **Font Awesome:**
 [Repo](https://fontawesome.com/icons?d=listing&m=free)  
 Usage:  
 ```
-<i class="fas fa-adjust"></i>
+<i class="fas fa-home"></i>
 ```
   
 **IonIcons:**
@@ -106,9 +108,9 @@ Usage:
 [Repo](https://material.io/icons/)  
 Usage:  
 ```
-<i class="material-icons">loyalty</i>
+<i class="material-icons">home</i>
 ```
-
+  
 ### ▶️ Media queries
 Recommended media query sizes:  
 
@@ -130,6 +132,5 @@ There is a few demo plugins included located at `app/js/components/Plugin...`. I
 - [**AnimeJS**](http://animejs.com/): For animating elements
 - [**React Scroll**](https://github.com/fisshy/react-scroll): For scrolling
 - [**React Video**](https://github.com/video-react/video-react): For working with video
-
-### ▶️ Conditionally Adding React Components
-For now the solution for pages with individual components will need to be imported by first checking to see if the empty `#div` exists in `index.js`. Imported components are split into 2 sections `Sitewide` and `Conditional - specific pages`. 
+- [**React Modal**](https://github.com/reactjs/react-modal): For working with popup modals
+- [**React Tooltip**](https://github.com/wwayne/react-tooltip): For working with tooltips & popovers

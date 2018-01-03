@@ -11,6 +11,8 @@ class Tabs extends React.Component {
         <a href="plugin-moment">🕑 MomentJS</a>
         <a href="plugin-scroll">🔃 React Scroll</a>
         <a href="plugin-video">📹 React Video</a>
+        <a href="plugin-modal">🔲 React Modal</a>
+        <a href="plugin-tooltip">ℹ️ React Tooltip</a>
       </div>
     );
   }

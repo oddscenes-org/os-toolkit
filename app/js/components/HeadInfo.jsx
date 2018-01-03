@@ -28,16 +28,6 @@ class HeadInfo extends React.Component {
         <meta property="twitter:image" content={this.props.pageImage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="og:site" content={this.props.pageWebsite} />
-
-        {/* Font Awesome */}
-        {/* <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js" /> */}
-
-        {/* IonIcons */}
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-        <script src="https://unpkg.com/ionicons@4.0.0-6/dist/ionicons.js" />
-
-        {/* Material Icons */}
-        {/* <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> */}
       </Helmet>
     );
   }

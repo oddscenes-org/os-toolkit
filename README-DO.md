@@ -27,8 +27,18 @@ npm install webpack -g
 sudo npm install forever -g
 sudo npm install <in project>
 ```
-see processes: `ps aux | grep node`
+see processes: `ps aux | grep node`  
 kill processes: `killall node`
+  
+**Installing Yarn**  
+To install `yarn` on your linux server:
+```
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+sudo apt-get update && sudo apt-get install yarn
+```
 
 **update default port in nginx config ->** `/etc/nginx/sites-enabled/default`
 
@@ -36,5 +46,5 @@ Then run:
 ```
 service nginx restart
 sudo service nginx start
-forever start -c "npm start" ./
+forever start -c "yarn start" ./
 ```

@@ -1,5 +1,5 @@
 {
-  "name": "react-template",
+  "name": "os-toolkit",
   "version": "1.0.0",
   "description": "React Express template setup",
   "main": "index.js",
@@ -7,11 +7,17 @@
     "dev": "webpack-dev-server --progress --inline --colors",
     "dashboard": "webpack-dashboard -- webpack-dev-server --progress --profile",
     "build": "rm -rf build && webpack --config webpack.production.config.js --progress --profile --colors",
-    "start": "node server.js"
+    "start": "node server.js",
+    "now-build": "NODE_ENV=production && webpack --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/oddscenes/react-template"
+    "url": "https://github.com/oddscenes/os-toolkit"
+  },
+  "now": {
+    "engines": {
+      "node": ">= 7.6.0"
+    }
   },
   "author": "Justin Brazeau",
   "license": "ISC",
@@ -34,6 +40,7 @@
     "react-motion": "^0.5.2",
     "react-scroll": "^1.7.3",
     "react-scroll-to-component": "^1.0.2",
+    "react-tooltip": "^3.4.0",
     "redux": "^3.7.2",
     "video-react": "^0.9.3",
     "webpack": "^3.10.0",

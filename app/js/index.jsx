@@ -13,6 +13,7 @@ import PluginMoment from './components/PluginMoment.jsx';
 import PluginScroll from './components/PluginScroll.jsx';
 import PluginVideo from './components/PluginVideo.jsx';
 import PluginModal from './components/PluginModal.jsx';
+import PluginTooltip from './components/PluginTooltip.jsx';
 import './components/PluginAnime.jsx';
 
 // Analytics Info
@@ -44,4 +45,8 @@ if (document.body.contains(document.getElementById('plugin-video'))) {
 
 if (document.body.contains(document.getElementById('plugin-modal'))) {
   render(<PluginModal />, document.getElementById('plugin-modal'));
+}
+
+if (document.body.contains(document.getElementById('plugin-tooltip'))) {
+  render(<PluginTooltip />, document.getElementById('plugin-tooltip'));
 }

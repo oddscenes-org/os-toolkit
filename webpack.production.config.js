@@ -105,6 +105,13 @@ module.exports = {
       inject: true,
       allChunks: true,
     }),
+    new HTMLWebpackPlugin({
+      title: 'PluginTooltip',
+      template: path.join(__dirname, '/app/plugin-tooltip.html'),
+      filename: 'plugin-tooltip.html',
+      inject: true,
+      allChunks: true,
+    }),
 
   ],
 };
