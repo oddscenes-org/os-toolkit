@@ -15,6 +15,7 @@ import PluginVideo from './components/PluginVideo.jsx';
 import PluginModal from './components/PluginModal.jsx';
 import PluginTooltip from './components/PluginTooltip.jsx';
 import './components/PluginAnime.jsx';
+import './components/PluginThree.jsx';
 
 // Analytics Info
 ReactGA.initialize('UA-000000-01');

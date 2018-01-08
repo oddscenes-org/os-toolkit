@@ -13,6 +13,7 @@ class Tabs extends React.Component {
         <a href="plugin-video">📹 React Video</a>
         <a href="plugin-modal">🔲 React Modal</a>
         <a href="plugin-tooltip">ℹ️ React Tooltip</a>
+        <a href="plugin-three">💠 ThreeJS</a>
       </div>
     );
   }

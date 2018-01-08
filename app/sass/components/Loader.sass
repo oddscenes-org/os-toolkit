@@ -3,11 +3,13 @@
 // sass-lint:disable no-important
 @import './../global/variables.sass'
 
+// Set .pace background to progress bar colour
+// And .pace-progress to background progress bar colour
 
 .pace
   -moz-user-select: none
   -webkit-user-select: none
-  background: $purple-darker
+  background: $black
   bottom: 0
   height: 100%
   left: 0
@@ -22,7 +24,7 @@
   z-index: 2000
 
   .pace-progress
-    background: $black
+    background: transparent
     box-sizing: border-box
     display: block
     height: 100%
@@ -32,3 +34,14 @@
 
 .pace-inactive
   display: none
+
+.pace-activity
+  height: 200px
+  left: 50%
+  position: fixed
+  top: 50%
+  transform: translate(-50%, -50%)
+  width: 200px
+
+  &::before
+    content: url('../img/loader.gif')

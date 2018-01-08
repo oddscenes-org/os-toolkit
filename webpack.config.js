@@ -47,6 +47,7 @@ module.exports = {
         { from: /\/plugin-video/, to: '/plugin-video.html' },
         { from: /\/plugin-modal/, to: '/plugin-modal.html' },
         { from: /\/plugin-tooltip/, to: '/plugin-tooltip.html' },
+        { from: /\/plugin-three/, to: '/plugin-three.html' },
       ],
     },
   },
@@ -121,6 +122,12 @@ module.exports = {
       inject: true,
       allChunks: true,
     }),
-
+    new HTMLWebpackPlugin({
+      title: 'PluginThree',
+      template: path.join(__dirname, '/app/plugin-three.html'),
+      filename: 'plugin-three.html',
+      inject: true,
+      allChunks: true,
+    }),
   ],
 };

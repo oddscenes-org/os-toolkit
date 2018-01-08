@@ -134,3 +134,4 @@ There is a few demo plugins included located at `app/js/components/Plugin...`. I
 - [**React Video**](https://github.com/video-react/video-react): For working with video
 - [**React Modal**](https://github.com/reactjs/react-modal): For working with popup modals
 - [**React Tooltip**](https://github.com/wwayne/react-tooltip): For working with tooltips & popovers
+- [**ThreeJS**](https://github.com/mrdoob/three.js): For working with 3D objects

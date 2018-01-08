@@ -112,6 +112,12 @@ module.exports = {
       inject: true,
       allChunks: true,
     }),
-
+    new HTMLWebpackPlugin({
+      title: 'PluginThree',
+      template: path.join(__dirname, '/app/plugin-three.html'),
+      filename: 'plugin-three.html',
+      inject: true,
+      allChunks: true,
+    }),
   ],
 };
