@@ -14,8 +14,16 @@ import PluginScroll from './components/PluginScroll.jsx';
 import PluginVideo from './components/PluginVideo.jsx';
 import PluginModal from './components/PluginModal.jsx';
 import PluginTooltip from './components/PluginTooltip.jsx';
-import './components/PluginAnime.jsx';
-import './components/PluginThree.jsx';
+
+
+// Conditional Plugins
+if (document.body.contains(document.getElementById('webgl'))) {
+  require('./components/PluginThree.jsx');
+}
+
+if (document.body.contains(document.getElementById('plugin-anime'))) {
+  require('./components/PluginAnime.jsx');
+}
 
 // Analytics Info
 ReactGA.initialize('UA-000000-01');
