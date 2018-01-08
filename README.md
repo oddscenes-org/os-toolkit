@@ -126,7 +126,7 @@ Recommended media query sizes:
 
 
 ### ▶️ Demo Plugins
-There is a few demo plugins included located at `app/js/components/Plugin...`. If you won't be using them delete these files, and remove them from `index.js` and corresponding `#div`s in `HTML`.
+There is a few demo plugins included located at `app/js/components/Plugin...`. If you won't be using them delete these files, and remove them from `index.js` and corresponding `#div`s in `HTML`. Plugins can also be loaded conditionally from this file (see AnimeJS/ThreeJS).
 
 - [**MomentJS**](https://momentjs.com/): For working with time & dates
 - [**AnimeJS**](http://animejs.com/): For animating elements
