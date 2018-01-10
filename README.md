@@ -134,4 +134,4 @@ There is a few demo plugins included located at `app/js/components/Plugin...`. I
 - [**AnimeJS**](http://animejs.com/): For animating elements
 - [**React Scroll**](https://github.com/fisshy/react-scroll): For scrolling
 - [**ThreeJS**](https://github.com/mrdoob/three.js): For working with 3D objects
-- [**UI Kit](https://github.com/uikit/uikit): Collection of UI components
+- [**UI Kit**](https://github.com/uikit/uikit): Collection of UI components
