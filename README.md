@@ -124,6 +124,8 @@ Recommended media query sizes:
 | XX-Large      | 1201px - 1600px  |
 | XXX-Large     | > 1600px         |
 
+Variables are set up with these names, example usage:
+`@media #{$xx-large}`
 
 ### ▶️ Demo Plugins
 There is a few demo plugins included located at `app/js/components/Plugin...`. If you won't be using them delete these files, and remove them from `index.js` and corresponding `#div`s in `HTML`. Plugins can also be loaded conditionally from this file (see AnimeJS/ThreeJS).
@@ -131,7 +133,5 @@ There is a few demo plugins included located at `app/js/components/Plugin...`. I
 - [**MomentJS**](https://momentjs.com/): For working with time & dates
 - [**AnimeJS**](http://animejs.com/): For animating elements
 - [**React Scroll**](https://github.com/fisshy/react-scroll): For scrolling
-- [**React Video**](https://github.com/video-react/video-react): For working with video
-- [**React Modal**](https://github.com/reactjs/react-modal): For working with popup modals
-- [**React Tooltip**](https://github.com/wwayne/react-tooltip): For working with tooltips & popovers
 - [**ThreeJS**](https://github.com/mrdoob/three.js): For working with 3D objects
+- [**UI Kit](https://github.com/uikit/uikit): Collection of UI components

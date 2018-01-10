@@ -11,10 +11,7 @@ import Header from './components/Header.jsx';
 // Plugins
 import PluginMoment from './components/PluginMoment.jsx';
 import PluginScroll from './components/PluginScroll.jsx';
-import PluginVideo from './components/PluginVideo.jsx';
-import PluginModal from './components/PluginModal.jsx';
-import PluginTooltip from './components/PluginTooltip.jsx';
-
+require('uikit');
 
 // Conditional Plugins
 if (document.body.contains(document.getElementById('webgl'))) {
@@ -46,16 +43,4 @@ if (document.body.contains(document.getElementById('plugin-moment'))) {
 
 if (document.body.contains(document.getElementById('plugin-scroll'))) {
   render(<PluginScroll />, document.getElementById('plugin-scroll'));
-}
-
-if (document.body.contains(document.getElementById('plugin-video'))) {
-  render(<PluginVideo />, document.getElementById('plugin-video'));
-}
-
-if (document.body.contains(document.getElementById('plugin-modal'))) {
-  render(<PluginModal />, document.getElementById('plugin-modal'));
-}
-
-if (document.body.contains(document.getElementById('plugin-tooltip'))) {
-  render(<PluginTooltip />, document.getElementById('plugin-tooltip'));
 }
